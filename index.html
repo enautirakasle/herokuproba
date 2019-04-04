@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- ZURE CSS ORRIA / TU HOJA DE CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
+
+  <title>Marvel 01</title>
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+
+  
+  <!-- IDATZI TARTE HONETAN ZURE AZTERKETAREN HTML KODEA : HASIERA -->
+  <!-- ESCRIBE TU CÓDIGO HTML EN ESTE HUECO : INICIO -->
+  <div id="info"></div>
+  
+  <!-- ESCRIBE TU CÓDIGO EN ESTE HUECO : FIN -->
+  <!-- IDATZI TARTE HONETAN ZURE AZTERKETAREN KODEA : AMAIERA -->
+  <script>
+
+    $(document).ready(function () {
+      //este hash se ha consegido con el md5 de (un_numero + private_key + public_key)
+      //la hemos cifrado utilizando la pagina https://md5online.es/
+      var hash = "ef8e3b4df22503359d5a63565ad9d708";
+      var public_key = "05b3a29c933af298f3dd61d4949af59c";
+      var filtro = "aven";
+      var url_base = "http://gateway.marvel.com/v1/public/series";
+      /* IDATZI TARTE HONETAN ZURE AZTERKETAREN JQUERY KODEA : HASIERA */
+      /* ESCRIBE TU CÓDIGO JQUERY EN ESTE HUECO : INICIO */
+
+      // var url = 'http://gateway.marvel.com/v1/public/series?ts=1&apikey=05b3a29c933af298f3dd61d4949af59c&hash=ef8e3b4df22503359d5a63565ad9d708';
+      // $.getJSON(url, function(datos){
+      //     console.log(datos);
+      // });
+
+      $.getJSON(url_base, {
+          titleStartsWith: filtro,
+          ts: 1,
+          apikey: public_key,
+          hash: hash,
+          limit: 50
+        }).done(function (response) {
+          console.log(response);
+          var series = response.data.results;//$('#copyright').html(response.data.);
+          console.log(series);
+          var htmlCode = "";
+          for (let index = 0; index < series.length; index++) {
+            const serie = series[index];
+            //imprimir los titulos de las series en consola
+            //console.log(fsfsdafa);
+            htmlCode += serie.title + ", ";
+          }
+          $('#info').html(htmlCode);
+        });
+          
+        
+
+
+      /* IDATZI TARTE HONETAN ZURE AZTERKETAREN JQUERY KODEA : AMAIERA */
+      /* ESCRIBE TU CÓDIGO JQUERY EN ESTE HUECO : FIN */
+    });
+  </script>
+</body>
+
+</html>
