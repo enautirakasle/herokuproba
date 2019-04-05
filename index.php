@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <H1>kaixo 10 aldiz</H1>
+    <H1>Hau etxean</H1>
 <?php
 for ($i=0; $i < 10; $i++) { 
     echo('kaixo heroku: ' . $i);
