@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <H1>Marbeleko avengers komikiak</H1>
+    <H1>kaixo 10 aldiz</H1>
 <?php
 for ($i=0; $i < 10; $i++) { 
     echo('kaixo heroku: ' . $i);
